@@ -212,31 +212,39 @@
                 <div class="form-group clearfix">
                   <div class="col-sm-4 control-label">
                     <label>Application Category</label>
-                    <p class="help-block label-helper"><small>The category that best describes this app. For more information, see the <a href="https://itunesconnect.apple.com/itc/static/category_definitions" target="_blank">Windows Store Category Definitions.</a></small></p>
+                    <p class="help-block label-helper"><small>The category that best describes this app.</small></p>
                   </div>
                   <div class="col-sm-8">
-                    <label for="fl-store-category1" class="select-proxy-display">
-                    <span class="icon fa fa-chevron-down"></span>
-                    <span class="select-value-proxy">-- Primary Category</span>
-                    <select id="fl-store-category1" name="fl-store-category1" data-label="select" class="hidden-select form-control" data-error="Please select a category" required>
-                      <option value="">-- Primary Category</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="2">Option 3</option>
-                    </select>
-                  </label>
+                    <label for="fl-store-category" class="select-proxy-display">
+                      <span class="icon fa fa-chevron-down"></span>
+                      <span class="select-value-proxy">-- Select a category</span>
+                      <select id="fl-store-category" name="fl-store-category" data-label="select" class="hidden-select form-control" data-error="Please select a category" required>
+                        <option value="">-- Select a category</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="2">Option 3</option>
+                      </select>
+                    </label>
                     <div class="help-block with-errors"></div>
-                    <label for="fl-store-category2" class="select-proxy-display">
-                    <span class="icon fa fa-chevron-down"></span>
-                    <span class="select-value-proxy">-- Secondary Category</span>
-                    <select id="fl-store-category2" name="fl-store-category2" data-label="select" class="hidden-select form-control">
-                      <option value="">-- Secondary Category</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="2">Option 3</option>
-                    </select>
-                  </label>
-                    <p class="help-block"><small>Secondary category is optional</small></p>
+                  </div>
+                </div>
+                <div class="form-group clearfix">
+                  <div class="col-sm-4 control-label">
+                    <label>Application Subcategory</label>
+                    <p class="help-block label-helper"><small>The subcategory that best describes this app.</small></p>
+                  </div>
+                  <div class="col-sm-8">
+                    <label for="fl-store-subcategory" class="select-proxy-display">
+                      <span class="icon fa fa-chevron-down"></span>
+                      <span class="select-value-proxy">-- Select a subcategory</span>
+                      <select id="fl-store-subcategory" name="fl-store-subcategory" data-label="select" class="hidden-select form-control" data-error="Please select a subcategory" required>
+                        <option value="">-- Select a subcategory</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="2">Option 3</option>
+                      </select>
+                    </label>
+                    <div class="help-block with-errors"></div>
                   </div>
                 </div>
                 <div class="form-group clearfix">
@@ -526,7 +534,7 @@
                     <label for="fl-store-keywords">Rating</label>
                   </div>
                   <div class="col-sm-8">
-                    Your app rating is determined by Apple based on your app type. The app rating will display on the Windows Store across all your platforms. Fliplet apps will be rated <strong>17+</strong> by default.
+                    Your app rating is determined by Microsoft based on your app type. The app rating will display on the Windows Store across all your platforms. Fliplet apps will be rated <strong>17+</strong> by default.
                   </div>
                 </div>
                 <div class="form-group clearfix">
@@ -581,20 +589,20 @@
                 <p>Now it's down to the technical inforamtion.</p>
                 <div class="form-group clearfix">
                   <div class="col-sm-4 control-label">
-                    <label for="fl-store-appDevLogin">App Developer account login</label>
+                    <label for="fl-store-appDevLogin">Microsoft Developer account login</label>
                   </div>
                   <div class="col-sm-8">
-                    <input type="email" name="fl-store-appDevLogin" class="form-control" id="fl-store-appDevLogin" placeholder="Enter App Developer login email" data-error="Please enter a valid email address" required/>
+                    <input type="email" name="fl-store-appDevLogin" class="form-control" id="fl-store-appDevLogin" placeholder="Enter Microsoft Developer login email" data-error="Please enter a valid email address" required/>
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
                 <div class="form-group clearfix">
                   <div class="col-sm-4 control-label">
-                    <label for="fl-store-appDevPass">App Developer account password</label>
+                    <label for="fl-store-appDevPass">Microsoft Developer account password</label>
                     <p class="help-block label-helper"><small>The password will be encrypted, safely stored and never shown.</small></p>
                   </div>
                   <div class="col-sm-8">
-                    <input type="password" name="fl-store-appDevPass" class="form-control" id="fl-store-appDevPass" placeholder="Enter App Developer account pass" data-error="Please enter a password" required/>
+                    <input type="password" name="fl-store-appDevPass" class="form-control" id="fl-store-appDevPass" placeholder="Enter Microsoft Developer account pass" data-error="Please enter a password" required/>
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
@@ -617,12 +625,34 @@
                 </div>
                 <div class="form-group clearfix">
                   <div class="col-sm-4 control-label">
-                    <label for="fl-store-teamId">Team ID</label>
+                    <label>Product declarations</label>
+                    <p class="help-block label-helper"><small>Optional</small></p>
+                    <p class="help-block"><small>Check any appropriate boxes below. This may affect the way your product is displayed or whether it is offered to certain users. <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=528679">Learn more</a></small></p>
                   </div>
                   <div class="col-sm-8">
-                    <input type="text" name="fl-store-teamId" class="form-control" id="fl-store-teamId" placeholder="Enter your Team ID" data-error="Please enter your Team ID" required/>
-                    <div class="help-block with-errors"></div>
-                    <p class="help-block"><small>Your Team ID can be found <a href="https://developer.apple.com/account/#/membership/">here</a>.</small></p>
+                    <div class="checkbox checkbox-icon">
+                      <input type="checkbox" id="fl-store-allowPurchases" name="fl-store-allowPurchases" value="on">
+                      <label for="fl-store-allowPurchases">
+                        <span class="check"><i class="fa fa-check"></i></span> This product allows users to make purchases, but does not use the Windows Store commerce system.
+                      </label>
+                    </div>
+                    <div class="checkbox checkbox-icon">
+                      <input type="checkbox" id="fl-store-tested" name="fl-store-tested" value="on">
+                      <label for="fl-store-tested">
+                        <span class="check"><i class="fa fa-check"></i></span> This product has been tested to meet accessibility guidelines.
+                      </label>
+                    </div>
+                    <div class="checkbox checkbox-icon">
+                      <input type="checkbox" id="fl-store-allowDrivesStorage" name="fl-store-allowDrivesStorage" value="on" checked>
+                      <label for="fl-store-allowDrivesStorage">
+                        <span class="check"><i class="fa fa-check"></i></span> Customers can install this product to alternate drives or removable storage.
+                      </label>
+                    </div>
+                    <div class="checkbox checkbox-icon">
+                      <input type="checkbox" id="fl-store-oneDrive" name="fl-store-oneDrive" value="on" checked>
+                      <label for="fl-store-oneDrive"> <span class="check"><i class="fa fa-check"></i></span> Windows can include this product’s data in automatic backups to OneDrive.
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -634,7 +664,7 @@
             </div>
             <div id="appStoreContacts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="appStoreContactsHeading">
               <div class="panel-body">
-                <p>These details will be used by Apple Review team to get in touch with you if needed.</p>
+                <p>These details will be used by Microsoft Review team to get in touch with you if needed.</p>
                 <div class="form-group clearfix">
                   <div class="col-sm-4 control-label">
                     <label for="fl-store-fname">First Name</label>
@@ -866,7 +896,7 @@
                   <div class="col-sm-8">
                     <input type="email" name="fl-store-email" class="form-control" id="fl-store-email" placeholder="Enter your email address" data-error="Please enter a valid email address" required/>
                     <div class="help-block with-errors"></div>
-                    <p class="help-block"><small>Apple will use this email to get in touch if there are any issues with your app submission. Fliplet will not receive any correspondence from Apple.</small></p>
+                    <p class="help-block"><small>Microsoft will use this email to get in touch if there are any issues with your app submission. Fliplet will not receive any correspondence from Microsoft.</small></p>
                   </div>
                 </div>
                 <div class="form-group clearfix">
@@ -876,7 +906,7 @@
                   </div>
                   <div class="col-sm-8">
                     <textarea name="fl-store-review-notes" class="form-control" id="fl-store-review-notes" placeholder="Enter your message"></textarea>
-                    <p class="help-block"><small>Use this text area to add any notes to the Apple Review team. <i>Eg: Email and Verification Code for a Registration screen</i></small></p>
+                    <p class="help-block"><small>Use this text area to add any notes to the Microsoft Review team. <i>Eg: Email and Verification Code for a Registration screen</i></small></p>
                   </div>
                 </div>
               </div>
@@ -949,16 +979,6 @@
                       <div class="help-block with-errors"></div>
                       <p class="help-block"><small>This value needs to be unique and the structure must be <code>com.<i>organisationName</i>.<i>appName</i></code>.</small></p>
                     </div>
-                  </div>
-                </div>
-                <div class="form-group clearfix">
-                  <div class="col-sm-4 control-label">
-                    <label for="fl-enterprise-teamId">Team ID</label>
-                  </div>
-                  <div class="col-sm-8">
-                    <input type="text" name="fl-enterprise-teamId" class="form-control" id="fl-enterprise-teamId" placeholder="Enter your Team ID" data-error="Please enter your Team ID" required/>
-                    <div class="help-block with-errors"></div>
-                    <p class="help-block"><small>The Team ID can be found <a href="https://developer.apple.com/account/#/membership/">here</a>.</small></p>
                   </div>
                 </div>
               </div>
