@@ -174,19 +174,9 @@
                     <p class="help-block label-helper"><small>This is the name that will appear below the icon of your app</small></p>
                   </div>
                   <div class="col-sm-8">
-                    <input type="text" name="fl-store-iconName" class="form-control" id="fl-store-iconName" placeholder="Enter the app icon name" maxlength="30" data-error="Please enter an app icon name" required/>
+                    <input type="text" name="fl-store-iconName" class="form-control" id="fl-store-iconName" placeholder="Enter the app icon name" maxlength="13" data-error="Please enter an app icon name" required/>
                     <div class="help-block with-errors"></div>
-                    <p class="help-block"><small>The length of your app icon name is limited to 30 characters</small></p>
-                  </div>
-                </div>
-                <div class="form-group clearfix">
-                  <div class="col-sm-4 control-label">
-                    <label for="fl-store-subtitle">App subtitle</label>
-                    <p class="help-block label-helper"><small>Optional</small></p>
-                  </div>
-                  <div class="col-sm-8">
-                    <textarea name="fl-store-subtitle" class="form-control" id="fl-store-subtitle" placeholder="Enter an app subtitle" maxlength="30"></textarea>
-                    <p class="help-block"><small>Subtitles are limited to 30 characters and appear below your app’s name throughout the Windows Store.</small></p>
+                    <p class="help-block"><small>The length of your app icon name is limited to 13 characters</small></p>
                   </div>
                 </div>
                 <div class="form-group clearfix">
@@ -197,16 +187,6 @@
                   <div class="col-sm-8">
                     <textarea name="fl-store-description" class="form-control" id="fl-store-description" placeholder="Enter an app description"></textarea>
                     <p class="help-block"><small>Provide an engaging description that highlights the features and functionality of your app.</small></p>
-                  </div>
-                </div>
-                <div class="form-group clearfix">
-                  <div class="col-sm-4 control-label">
-                    <label for="fl-store-promotional">App promotional text</label>
-                    <p class="help-block label-helper"><small>Optional</small></p>
-                  </div>
-                  <div class="col-sm-8">
-                    <textarea name="fl-store-promotional" class="form-control" id="fl-store-promotional" placeholder="Enter an app promotional text" maxlength="170"></textarea>
-                    <p class="help-block"><small>Your app’s promotional text appears at the top of the description and is limited to 170 characters. </small></p>
                   </div>
                 </div>
                 <div class="form-group clearfix">
@@ -231,20 +211,19 @@
                 <div class="form-group clearfix">
                   <div class="col-sm-4 control-label">
                     <label>Application Subcategory</label>
-                    <p class="help-block label-helper"><small>The subcategory that best describes this app.</small></p>
+                    <p class="help-block label-helper"><small>Optional - The subcategory that best describes this app.</small></p>
                   </div>
                   <div class="col-sm-8">
                     <label for="fl-store-subcategory" class="select-proxy-display">
                       <span class="icon fa fa-chevron-down"></span>
                       <span class="select-value-proxy">-- Select a subcategory</span>
-                      <select id="fl-store-subcategory" name="fl-store-subcategory" data-label="select" class="hidden-select form-control" data-error="Please select a subcategory" required>
+                      <select id="fl-store-subcategory" name="fl-store-subcategory" data-label="select" class="hidden-select form-control">
                         <option value="">-- Select a subcategory</option>
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
                         <option value="2">Option 3</option>
                       </select>
                     </label>
-                    <div class="help-block with-errors"></div>
                   </div>
                 </div>
                 <div class="form-group clearfix">
@@ -336,13 +315,21 @@
                 </div>
                 <div class="form-group clearfix">
                   <div class="col-sm-4 control-label">
-                    <label for="fl-store-keywords">Keywords</label>
+                    <label>Keywords</label>
                     <p class="help-block label-helper"><small>Keywords help determine where your app displays in search results.</small></p>
                   </div>
                   <div class="col-sm-8">
-                    <input type="text" name="fl-store-keywords" class="form-control" id="fl-store-keywords" placeholder="Type a keyword" data-error="Please enter at least one keyword" required/>
+                    <input type="text" name="fl-store-keywords-1" class="form-control" id="fl-store-keywords-1" placeholder="Type a keyword" maxlength="30" data-error="Please enter at least one keyword" required/>
                     <div class="help-block with-errors"></div>
-                    <p class="help-block"><small>Keywords are limited to 100 characters total.</small></p>
+                    <input type="text" name="fl-store-keywords-2" class="form-control" id="fl-store-keywords-2" placeholder="Type a keyword" maxlength="30" />
+                    <input type="text" name="fl-store-keywords-3" class="form-control" id="fl-store-keywords-3" placeholder="Type a keyword" maxlength="30" />
+                    <input type="text" name="fl-store-keywords-4" class="form-control" id="fl-store-keywords-4" placeholder="Type a keyword" maxlength="30" />
+                    <input type="text" name="fl-store-keywords-5" class="form-control" id="fl-store-keywords-5" placeholder="Type a keyword" maxlength="30" />
+                    <input type="text" name="fl-store-keywords-6" class="form-control" id="fl-store-keywords-6" placeholder="Type a keyword" maxlength="30" />
+                    <input type="text" name="fl-store-keywords-7" class="form-control" id="fl-store-keywords-7" placeholder="Type a keyword" maxlength="30" />
+                    <p class="help-block"><small>Provide 7 keywords, one per box</small></p>
+                    <p class="help-block"><small>30 character limit for each keyword</small></p>
+                    <p class="help-block"><small>No more than 21 separate words across all keywords</small></p>
                   </div>
                 </div>
                 <div class="form-group clearfix">
@@ -350,7 +337,7 @@
                     <label>Availability (Countries)</label>
                   </div>
                   <div class="col-sm-8">
-                    <select id="fl-store-availability" name="fl-store-availability" data-live-search="true" data-actions-box="true" data-none-selected-text="Select from the list of countries" multiple class="form-control selectpicker" data-error="Please select at least one country"
+                    <select id="fl-store-availability" name="fl-store-availability" data-size="10" data-live-search="true" data-actions-box="true" data-none-selected-text="Select from the list of countries" multiple class="form-control selectpicker" data-error="Please select at least one country"
                       required>
                     <option value="Albania">Albania</option>
                     <option value="Algeria">Algeria</option>
@@ -516,17 +503,7 @@
                     <label>Price</label>
                   </div>
                   <div class="col-sm-8">
-                    <label for="fl-store-pricing" class="select-proxy-display">
-                    <span class="icon fa fa-chevron-down"></span>
-                    <span class="select-value-proxy">Free</span>
-                    <select id="fl-store-pricing" name="fl-store-pricing" data-label="select" class="hidden-select form-control" data-error="Please select a price" required>
-                      <option value="free">Free</option>
-                      <option value="1">£0.99</option>
-                      <option value="2">£1.99</option>
-                      <option value="2">£2.99</option>
-                    </select>
-                  </label>
-                    <div class="help-block with-errors"></div>
+                    Your app will be set to <strong>free app</strong> by default. If you want to change it to a paid app, please get in touch with us.
                   </div>
                 </div>
                 <div class="form-group clearfix">
@@ -623,38 +600,6 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group clearfix">
-                  <div class="col-sm-4 control-label">
-                    <label>Product declarations</label>
-                    <p class="help-block label-helper"><small>Optional</small></p>
-                    <p class="help-block"><small>Check any appropriate boxes below. This may affect the way your product is displayed or whether it is offered to certain users. <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=528679">Learn more</a></small></p>
-                  </div>
-                  <div class="col-sm-8">
-                    <div class="checkbox checkbox-icon">
-                      <input type="checkbox" id="fl-store-allowPurchases" name="fl-store-allowPurchases" value="on">
-                      <label for="fl-store-allowPurchases">
-                        <span class="check"><i class="fa fa-check"></i></span> This product allows users to make purchases, but does not use the Windows Store commerce system.
-                      </label>
-                    </div>
-                    <div class="checkbox checkbox-icon">
-                      <input type="checkbox" id="fl-store-tested" name="fl-store-tested" value="on">
-                      <label for="fl-store-tested">
-                        <span class="check"><i class="fa fa-check"></i></span> This product has been tested to meet accessibility guidelines.
-                      </label>
-                    </div>
-                    <div class="checkbox checkbox-icon">
-                      <input type="checkbox" id="fl-store-allowDrivesStorage" name="fl-store-allowDrivesStorage" value="on" checked>
-                      <label for="fl-store-allowDrivesStorage">
-                        <span class="check"><i class="fa fa-check"></i></span> Customers can install this product to alternate drives or removable storage.
-                      </label>
-                    </div>
-                    <div class="checkbox checkbox-icon">
-                      <input type="checkbox" id="fl-store-oneDrive" name="fl-store-oneDrive" value="on" checked>
-                      <label for="fl-store-oneDrive"> <span class="check"><i class="fa fa-check"></i></span> Windows can include this product’s data in automatic backups to OneDrive.
-                      </label>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -665,230 +610,6 @@
             <div id="appStoreContacts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="appStoreContactsHeading">
               <div class="panel-body">
                 <p>These details will be used by Microsoft Review team to get in touch with you if needed.</p>
-                <div class="form-group clearfix">
-                  <div class="col-sm-4 control-label">
-                    <label for="fl-store-fname">First Name</label>
-                  </div>
-                  <div class="col-sm-8">
-                    <input type="text" name="fl-store-fname" class="form-control" id="fl-store-fname" placeholder="Enter your first name" data-error="Please enter your first name" required/>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                </div>
-                <div class="form-group clearfix">
-                  <div class="col-sm-4 control-label">
-                    <label for="fl-store-lname">Last Name</label>
-                  </div>
-                  <div class="col-sm-8">
-                    <input type="text" name="fl-store-lname" class="form-control" id="fl-store-lname" placeholder="Enter your last name" data-error="Please enter your last name" required/>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                </div>
-                <div class="form-group clearfix">
-                  <div class="col-sm-4 control-label">
-                    <label for="fl-store-address1">Address line 1</label>
-                  </div>
-                  <div class="col-sm-8">
-                    <input type="text" name="fl-store-address1" class="form-control" id="fl-store-address1" placeholder="Enter your address" data-error="Please enter your address" required/>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                </div>
-                <div class="form-group clearfix">
-                  <div class="col-sm-4 control-label">
-                    <label for="fl-store-address2">Address line 2</label>
-                    <p class="help-block label-helper"><small>Optional</small></p>
-                  </div>
-                  <div class="col-sm-8">
-                    <input type="text" name="fl-store-address2" class="form-control" id="fl-store-address2" placeholder="Enter your address" />
-                  </div>
-                </div>
-                <div class="form-group clearfix">
-                  <div class="col-sm-4 control-label">
-                    <label for="fl-store-postCode">Post Code</label>
-                  </div>
-                  <div class="col-sm-8">
-                    <input type="text" name="fl-store-postCode" class="form-control" id="fl-store-postCode" placeholder="Enter your post code" data-error="Please enter your post code" required/>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                </div>
-                <div class="form-group clearfix">
-                  <div class="col-sm-4 control-label">
-                    <label for="fl-store-userCountry">Country</label>
-                  </div>
-                  <div class="col-sm-8">
-                    <label for="fl-store-userCountry" class="select-proxy-display">
-                    <span class="icon fa fa-chevron-down"></span>
-                    <span class="select-value-proxy">-- Select a country</span>
-                    <select id="fl-store-userCountry" data-label="select" name="fl-store-userCountry" class="hidden-select form-control" data-error="Please enter your country" required>
-                      <option value="">-- Select a country</option>
-                      <option value="Albania">Albania</option>
-                      <option value="Algeria">Algeria</option>
-                      <option value="Angola">Angola</option>
-                      <option value="Anguilla">Anguilla</option>
-                      <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                      <option value="Argentina">Argentina</option>
-                      <option value="Armenia">Armenia</option>
-                      <option value="Australia">Australia</option>
-                      <option value="Austria">Austria</option>
-                      <option value="Azerbaijan">Azerbaijan</option>
-                      <option value="Bahamas">Bahamas</option>
-                      <option value="Bahrain">Bahrain</option>
-                      <option value="Barbados">Barbados</option>
-                      <option value="Belarus">Belarus</option>
-                      <option value="Belgium">Belgium</option>
-                      <option value="Belize">Belize</option>
-                      <option value="Benin">Benin</option>
-                      <option value="Bermuda">Bermuda</option>
-                      <option value="Bhutan">Bhutan</option>
-                      <option value="Bolivia">Bolivia</option>
-                      <option value="Botswana">Botswana</option>
-                      <option value="Brazil">Brazil</option>
-                      <option value="Brunei Darussalam">Brunei Darussalam</option>
-                      <option value="Bulgaria">Bulgaria</option>
-                      <option value="Burkina Faso">Burkina Faso</option>
-                      <option value="Cambodia">Cambodia</option>
-                      <option value="Canada">Canada</option>
-                      <option value="Cape Verde">Cape Verde</option>
-                      <option value="Cayman Islands">Cayman Islands</option>
-                      <option value="Chad">Chad</option>
-                      <option value="Chile">Chile</option>
-                      <option value="China">China</option>
-                      <option value="Colombia">Colombia</option>
-                      <option value="Congo, Republic of">Congo, Republic of</option>
-                      <option value="Costa Rica">Costa Rica</option>
-                      <option value="Croatia">Croatia</option>
-                      <option value="Cyprus">Cyprus</option>
-                      <option value="Czech Republic">Czech Republic</option>
-                      <option value="Denmark">Denmark</option>
-                      <option value="Dominica">Dominica</option>
-                      <option value="Dominican Republic">Dominican Republic</option>
-                      <option value="Ecuador">Ecuador</option>
-                      <option value="Egypt">Egypt</option>
-                      <option value="El Salvador">El Salvador</option>
-                      <option value="Estonia">Estonia</option>
-                      <option value="Fiji">Fiji</option>
-                      <option value="Finland">Finland</option>
-                      <option value="France">France</option>
-                      <option value="Gambia">Gambia</option>
-                      <option value="Germany">Germany</option>
-                      <option value="Ghana">Ghana</option>
-                      <option value="Greece">Greece</option>
-                      <option value="Grenada">Grenada</option>
-                      <option value="Guatemala">Guatemala</option>
-                      <option value="Guinea-Bissau">Guinea-Bissau</option>
-                      <option value="Guyana">Guyana</option>
-                      <option value="Honduras">Honduras</option>
-                      <option value="Hong Kong">Hong Kong</option>
-                      <option value="Hungary">Hungary</option>
-                      <option value="Iceland">Iceland</option>
-                      <option value="India">India</option>
-                      <option value="Indonesia">Indonesia</option>
-                      <option value="Ireland">Ireland</option>
-                      <option value="Israel">Israel</option>
-                      <option value="Italy">Italy</option>
-                      <option value="Jamaica">Jamaica</option>
-                      <option value="Japan">Japan</option>
-                      <option value="Jordan">Jordan</option>
-                      <option value="Kazakhstan">Kazakhstan</option>
-                      <option value="Kenya">Kenya</option>
-                      <option value="Korea, Republic Of">Korea, Republic Of</option>
-                      <option value="Kuwait">Kuwait</option>
-                      <option value="Kyrgyzstan">Kyrgyzstan</option>
-                      <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
-                      <option value="Latvia">Latvia</option>
-                      <option value="Lebanon">Lebanon</option>
-                      <option value="Liberia">Liberia</option>
-                      <option value="Lithuania">Lithuania</option>
-                      <option value="Luxembourg">Luxembourg</option>
-                      <option value="Macau">Macau</option>
-                      <option value="Macedonia, The Former Yugoslav Republic Of">Macedonia, The Former Yugoslav Republic Of</option>
-                      <option value="Madagascar">Madagascar</option>
-                      <option value="Malawi">Malawi</option>
-                      <option value="Malaysia">Malaysia</option>
-                      <option value="Mali">Mali</option>
-                      <option value="Malta">Malta</option>
-                      <option value="Mauritania">Mauritania</option>
-                      <option value="Mauritius">Mauritius</option>
-                      <option value="Mexico">Mexico</option>
-                      <option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
-                      <option value="Moldova, Republic Of">Moldova, Republic Of</option>
-                      <option value="Mongolia">Mongolia</option>
-                      <option value="Montserrat">Montserrat</option>
-                      <option value="Mozambique">Mozambique</option>
-                      <option value="Namibia">Namibia</option>
-                      <option value="Nepal">Nepal</option>
-                      <option value="Netherlands">Netherlands</option>
-                      <option value="New Zealand">New Zealand</option>
-                      <option value="Nicaragua">Nicaragua</option>
-                      <option value="Niger">Niger</option>
-                      <option value="Nigeria">Nigeria</option>
-                      <option value="Norway">Norway</option>
-                      <option value="Oman">Oman</option>
-                      <option value="Pakistan">Pakistan</option>
-                      <option value="Palau">Palau</option>
-                      <option value="Panama">Panama</option>
-                      <option value="Papua New Guinea">Papua New Guinea</option>
-                      <option value="Paraguay">Paraguay</option>
-                      <option value="Peru">Peru</option>
-                      <option value="Philippines">Philippines</option>
-                      <option value="Poland">Poland</option>
-                      <option value="Portugal">Portugal</option>
-                      <option value="Qatar">Qatar</option>
-                      <option value="Romania">Romania</option>
-                      <option value="Russia">Russia</option>
-                      <option value="Saint Lucia">Saint Lucia</option>
-                      <option value="Saudi Arabia">Saudi Arabia</option>
-                      <option value="Senegal">Senegal</option>
-                      <option value="Seychelles">Seychelles</option>
-                      <option value="Sierra Leone">Sierra Leone</option>
-                      <option value="Singapore">Singapore</option>
-                      <option value="Slovakia">Slovakia</option>
-                      <option value="Slovenia">Slovenia</option>
-                      <option value="Solomon Islands">Solomon Islands</option>
-                      <option value="South Africa">South Africa</option>
-                      <option value="Spain">Spain</option>
-                      <option value="Sri Lanka">Sri Lanka</option>
-                      <option value="St. Kitts and Nevis">St. Kitts and Nevis</option>
-                      <option value="St. Vincent and The Grenadines">St. Vincent and The Grenadines</option>
-                      <option value="Suriname">Suriname</option>
-                      <option value="Swaziland">Swaziland</option>
-                      <option value="Sweden">Sweden</option>
-                      <option value="Switzerland">Switzerland</option>
-                      <option value="São Tomé and Príncipe">São Tomé and Príncipe</option>
-                      <option value="Taiwan">Taiwan</option>
-                      <option value="Tajikistan">Tajikistan</option>
-                      <option value="Tanzania, United Republic Of">Tanzania, United Republic Of</option>
-                      <option value="Thailand">Thailand</option>
-                      <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                      <option value="Tunisia">Tunisia</option>
-                      <option value="Turkey">Turkey</option>
-                      <option value="Turkmenistan">Turkmenistan</option>
-                      <option value="Turks and Caicos">Turks and Caicos</option>
-                      <option value="Uganda">Uganda</option>
-                      <option value="Ukraine">Ukraine</option>
-                      <option value="United Arab Emirates">United Arab Emirates</option>
-                      <option value="United Kingdom">United Kingdom</option>
-                      <option value="United States">United States</option>
-                      <option value="Uruguay">Uruguay</option>
-                      <option value="Uzbekistan">Uzbekistan</option>
-                      <option value="Venezuela">Venezuela</option>
-                      <option value="Vietnam">Vietnam</option>
-                      <option value="Virgin Islands, British">Virgin Islands, British</option>
-                      <option value="Yemen">Yemen</option>
-                      <option value="Zimbabwe">Zimbabwe</option>
-                    </select>
-                  </label>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                </div>
-                <div class="form-group clearfix">
-                  <div class="col-sm-4 control-label">
-                    <label for="fl-store-phone">Phone Number</label>
-                  </div>
-                  <div class="col-sm-8">
-                    <input type="number" name="fl-store-phone" class="form-control" id="fl-store-phone" placeholder="Enter your phone number" data-error="Please enter a valid phone number" required/>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                </div>
                 <div class="form-group clearfix">
                   <div class="col-sm-4 control-label">
                     <label for="fl-store-email">Email Address</label>
@@ -952,6 +673,26 @@
                   <div class="col-sm-8">
                     <div class="setting-splash-screen userUploaded hidden" style="background-image: url();"></div>
                     <div class="setting-splash-screen default" style="background-image: url({{ asset 'img/splash-screen.png' }});"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="enterpriseGeneralHeading">
+              <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordionEnterprise" href="#appStoreGeneral" aria-expanded="true" aria-controls="appStoreGeneral">App listing details <small>(Required)</small></h4>
+            </div>
+            <div id="enterpriseGeneral" class="panel-collapse collapse" role="tabpanel" aria-labelledby="enterpriseGeneralHeading">
+              <div class="panel-body">
+                <div class="form-group clearfix">
+                  <div class="col-sm-4 control-label">
+                    <label for="fl-ent-iconName">App icon name</label>
+                    <p class="help-block label-helper"><small>This is the name that will appear below the icon of your app</small></p>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" name="fl-ent-iconName" class="form-control" id="fl-ent-iconName" placeholder="Enter the app icon name" maxlength="13" data-error="Please enter an app icon name" required/>
+                    <div class="help-block with-errors"></div>
+                    <p class="help-block"><small>The length of your app icon name is limited to 13 characters</small></p>
                   </div>
                 </div>
               </div>
@@ -1024,6 +765,26 @@
                   <div class="col-sm-8">
                     <div class="setting-splash-screen userUploaded hidden" style="background-image: url();"></div>
                     <div class="setting-splash-screen default" style="background-image: url({{ asset 'img/splash-screen.png' }});"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="unsignedGeneralHeading">
+              <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordionUnsigned" href="#unsignedGeneral" aria-expanded="true" aria-controls="unsignedGeneral">App listing details <small>(Required)</small></h4>
+            </div>
+            <div id="unsignedGeneral" class="panel-collapse collapse" role="tabpanel" aria-labelledby="unsignedGeneralHeading">
+              <div class="panel-body">
+                <div class="form-group clearfix">
+                  <div class="col-sm-4 control-label">
+                    <label for="fl-unsigned-iconName">App icon name</label>
+                    <p class="help-block label-helper"><small>This is the name that will appear below the icon of your app</small></p>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" name="fl-unsigned-iconName" class="form-control" id="fl-unsigned-iconName" placeholder="Enter the app icon name" maxlength="13" data-error="Please enter an app icon name" required/>
+                    <div class="help-block with-errors"></div>
+                    <p class="help-block"><small>The length of your app icon name is limited to 13 characters</small></p>
                   </div>
                 </div>
               </div>
