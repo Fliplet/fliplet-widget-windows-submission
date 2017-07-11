@@ -6,8 +6,8 @@ var appIcon = '';
 var appSettings = {};
 var allAppData = false;
 var appStoreSubmission = {};
-var enterpriseappStoreSubmission = {};
-var unsignedappStoreSubmission = {};
+var enterpriseSubmission = {};
+var unsignedSubmission = {};
 var notificationSettings = {};
 
 /* FUNCTIONS */
