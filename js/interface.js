@@ -223,8 +223,6 @@ function loadPushNotesData() {
 }
 
 function save(origin, submission) {
-  console.log(submission);
-  console.log(origin);
   Fliplet.App.Submissions.update(submission.id, submission.data).then(function() {
     $('.save-' + origin + '-progress').addClass('saved');
 
@@ -249,7 +247,7 @@ function requestBuild(origin, submission) {
 
       setTimeout(function() {
         $('.save-' + origin + '-request').removeClass('saved');
-      }, 4000);
+      }, 10000);
     }, function(err) {
       alert(err.responseJSON.message);
     });
