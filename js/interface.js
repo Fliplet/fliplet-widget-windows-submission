@@ -467,16 +467,20 @@ function savePushData() {
 
   notificationSettings = data;
 
-  Fliplet.API.request({
-    method: 'PUT',
-    url: 'v1/widget-instances/com.fliplet.push-notifications?appId=' + Fliplet.Env.get('appId'),
-    data: notificationSettings
-  }).then(function() {
-    $('.save-push-progress').addClass('saved');
+  if (notificationSettings.wns) {
+    Fliplet.API.request({
+      method: 'PUT',
+      url: 'v1/widget-instances/com.fliplet.push-notifications?appId=' + Fliplet.Env.get('appId'),
+      data: notificationSettings
+    }).then(function() {
+      $('.save-push-progress').addClass('saved');
 
-    setTimeout(function() {
-      $('.save-push-progress').removeClass('saved');
-    }, 4000);
+      setTimeout(function() {
+        $('.save-push-progress').removeClass('saved');
+      }, 4000);
+    });
+  } else {
+    alert('Changes weren\'t saved.\nPlease fill in both field to set up Push Notifications.');
   }
 }
 
