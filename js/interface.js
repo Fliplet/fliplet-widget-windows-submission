@@ -288,8 +288,9 @@ function save(origin, submission) {
       if (submission.status !== 'started') {
         return Fliplet.App.Submissions.create({
             platform: 'windows',
-            data: submission.data,
-            result: submission.result
+            data: $.extend(true, submission.data, {
+  previousResults: submission.result
+})
           })
           .then(function(newSubmission) {
             if (origin === "appStore") {
@@ -349,8 +350,9 @@ function requestBuild(origin, submission) {
       if (submission.status !== 'started') {
         return Fliplet.App.Submissions.create({
             platform: 'windows',
-            data: submission.data,
-            result: submission.result
+            data: $.extend(true, submission.data, {
+              previousResults: submission.result
+            })
           })
           .then(function(newSubmission) {
             if (origin === "appStore") {
