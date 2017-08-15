@@ -105,7 +105,7 @@ function loadAppStoreData() {
       }
       return;
     }
-    if (name === "fl-store-review-notes" && (appStoreSubmission.data[name] === "" || !appStoreSubmission.data[name])) {
+    if (name === "fl-store-review-notes" && !appStoreSubmission.data[name]) {
       $('[name="' + name + '"]').val(reviewerNotesTemplate);
       return;
     }
