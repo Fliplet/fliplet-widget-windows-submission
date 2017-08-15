@@ -98,6 +98,10 @@ function loadAppStoreData() {
       return;
     }
     if (name === "_fl-store-appDevPass") {
+      if (appStoreSubmission.data[name] !== "") {
+        $('[name="' + name + '"]').removeAttr('required');
+        $('[name="' + name + '"] ~ .hasPassword').removeClass('hidden');
+      }
       return;
     }
     if (name === "fl-store-review-notes" && (appStoreSubmission.data[name] === "" || !appStoreSubmission.data[name])) {
@@ -155,9 +159,6 @@ function loadEnterpriseData() {
     if (name === "fl-ent-bundleId" && typeof enterpriseSubmission.data[name] !== "undefined") {
       $('.bundleId-ent-text').html(enterpriseSubmission.data[name]);
       $('[name="' + name + '"]').val(enterpriseSubmission.data[name]);
-      return;
-    }
-    if (name === "_fl-ent-appDevPass" || name === "fl-ent-appDevLogin") {
       return;
     }
 
@@ -289,8 +290,8 @@ function save(origin, submission) {
         return Fliplet.App.Submissions.create({
             platform: 'windows',
             data: $.extend(true, submission.data, {
-  previousResults: submission.result
-})
+              previousResults: submission.result
+            })
           })
           .then(function(newSubmission) {
             if (origin === "appStore") {
