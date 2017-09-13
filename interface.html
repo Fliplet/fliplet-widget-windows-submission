@@ -118,7 +118,7 @@
             </div>
           </div>
         </div>
-        <div class="app-build-status-holder">
+        <div class="app-build-appstore-status-holder">
           <!-- App Status Area -->
         </div>
         <hr>
@@ -224,6 +224,9 @@
             </div>
           </div>
         </div>
+        <div class="app-build-enterprise-status-holder">
+          <!-- App Status Area -->
+        </div>
         <hr>
         <div class="col-xs-5 save-btn-holder">
           <p class="help-block"><small>Save your progress at any point.<br>You can come back and finish it.</small></p>
@@ -240,103 +243,106 @@
     <div role="tabpanel" class="tab-pane fl-sb-unsigned" id="unsigned-tab">
       <p class="text-info">Unsigned apps will need to be signed before they can be distributed. If you would like Fliplet to sign the app for you, please request an app via the "App Store" or "Enterprise" tabs above. If you request an unsigned app file, you will need a PC.
         For more information about signing apps, please see <a href="https://docs.microsoft.com/en-us/windows/uwp/packaging/create-certificate-package-signing" target="_blank">this article</a>.
-        </>
-        <form data-disable="false" role="form" id="unsignedConfiguration">
-          <div class="panel-group" id="accordionUnsigned" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default app-details-uns">
-              <div class="panel-heading" role="tab" id="unsignedSettingsHeading">
-                <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordionUnsigned" href="#unsignedSettings" aria-expanded="true" aria-controls="unsignedSettings"><strong>1 -</strong> App details <small>(Required)</small> <i class="fa fa-angle-down" aria-hidden="true"></i></h4>
-              </div>
-              <div id="unsignedSettings" class="panel-collapse collapse" role="tabpanel" aria-labelledby="unsignedSettingsHeading">
-                <div class="panel-body">
-                  <p style="margin-bottom: 25px;"><strong>Go to the <a href="#" class="redirectToSettings">App settings</a> page to change these fields. They are all required.</strong></p>
-                  <div class="form-group clearfix app-icon-name">
-                    <div class="col-sm-4 control-label">
-                      <label>App icon</label>
-                      <p><a href="#" data-change-settings>Change</a></p>
-                    </div>
-                    <div class="col-sm-8">
-                      <img class="setting-app-icon userUploaded hidden" src="#" />
-                      <img class="setting-app-icon default" src="{{ asset 'img/app-icon.png' }}" />
-                      <div class="help-block text-danger app-details-error">Click the change button to upload an app icon</div>
-                      <div class="help-block text-warning app-details-warning">This image is not the recommended size and may result in a low quality image.</div>
-                    </div>
+      </p>
+      <form data-disable="false" role="form" id="unsignedConfiguration">
+        <div class="panel-group" id="accordionUnsigned" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default app-details-uns">
+            <div class="panel-heading" role="tab" id="unsignedSettingsHeading">
+              <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordionUnsigned" href="#unsignedSettings" aria-expanded="true" aria-controls="unsignedSettings"><strong>1 -</strong> App details <small>(Required)</small> <i class="fa fa-angle-down" aria-hidden="true"></i></h4>
+            </div>
+            <div id="unsignedSettings" class="panel-collapse collapse" role="tabpanel" aria-labelledby="unsignedSettingsHeading">
+              <div class="panel-body">
+                <p style="margin-bottom: 25px;"><strong>Go to the <a href="#" class="redirectToSettings">App settings</a> page to change these fields. They are all required.</strong></p>
+                <div class="form-group clearfix app-icon-name">
+                  <div class="col-sm-4 control-label">
+                    <label>App icon</label>
+                    <p><a href="#" data-change-settings>Change</a></p>
                   </div>
-                  <div class="form-group clearfix app-splash-screen">
-                    <div class="col-sm-4 control-label">
-                      <label>Splash screen</label>
-                      <p><a href="#" data-change-assets>Change</a></p>
-                    </div>
-                    <div class="col-sm-8">
-                      <div class="setting-splash-screen userUploaded hidden" style="background-image: url();"></div>
-                      <div class="setting-splash-screen default" data-unsigned-default-splash-url="{{ asset 'img/splash-screen.png' }}" style="background-image: url({{ asset 'img/splash-screen.png' }});"></div>
-                      <div class="help-block text-danger app-details-error">Click the change button to upload a splash screen</div>
-                      <div class="help-block text-warning app-details-warning">This image is not the recommended size and may result in a low quality image.</div>
-                    </div>
+                  <div class="col-sm-8">
+                    <img class="setting-app-icon userUploaded hidden" src="#" />
+                    <img class="setting-app-icon default" src="{{ asset 'img/app-icon.png' }}" />
+                    <div class="help-block text-danger app-details-error">Click the change button to upload an app icon</div>
+                    <div class="help-block text-warning app-details-warning">This image is not the recommended size and may result in a low quality image.</div>
+                  </div>
+                </div>
+                <div class="form-group clearfix app-splash-screen">
+                  <div class="col-sm-4 control-label">
+                    <label>Splash screen</label>
+                    <p><a href="#" data-change-assets>Change</a></p>
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="setting-splash-screen userUploaded hidden" style="background-image: url();"></div>
+                    <div class="setting-splash-screen default" data-unsigned-default-splash-url="{{ asset 'img/splash-screen.png' }}" style="background-image: url({{ asset 'img/splash-screen.png' }});"></div>
+                    <div class="help-block text-danger app-details-error">Click the change button to upload a splash screen</div>
+                    <div class="help-block text-warning app-details-warning">This image is not the recommended size and may result in a low quality image.</div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="unsignedGeneralHeading">
-                <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordionUnsigned" href="#unsignedGeneral" aria-expanded="true" aria-controls="unsignedGeneral"><strong>2 -</strong> App listing details <small>(Required)</small> <i class="fa fa-angle-down" aria-hidden="true"></i></h4>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="unsignedGeneralHeading">
+              <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordionUnsigned" href="#unsignedGeneral" aria-expanded="true" aria-controls="unsignedGeneral"><strong>2 -</strong> App listing details <small>(Required)</small> <i class="fa fa-angle-down" aria-hidden="true"></i></h4>
+            </div>
+            <div id="unsignedGeneral" class="panel-collapse collapse" role="tabpanel" aria-labelledby="unsignedGeneralHeading">
+              <div class="panel-body">
+                <div class="form-group clearfix">
+                  <div class="col-sm-4 control-label">
+                    <label for="fl-uns-iconName">App icon name</label>
+                    <p class="help-block label-helper"><small>The name below the icon on the home screen.</small></p>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" name="fl-uns-iconName" class="form-control" id="fl-uns-iconName" maxlength="13" data-error="Please enter an app icon name" required/>
+                    <div class="help-block with-errors"></div>
+                    <p class="help-block"><small>The length of your app icon name is limited to 13 characters</small></p>
+                  </div>
+                </div>
               </div>
-              <div id="unsignedGeneral" class="panel-collapse collapse" role="tabpanel" aria-labelledby="unsignedGeneralHeading">
-                <div class="panel-body">
-                  <div class="form-group clearfix">
-                    <div class="col-sm-4 control-label">
-                      <label for="fl-uns-iconName">App icon name</label>
-                      <p class="help-block label-helper"><small>The name below the icon on the home screen.</small></p>
-                    </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="unsignedTechHeading">
+              <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordionUnsigned" href="#unsignedTech" aria-expanded="true" aria-controls="unsignedTech"><strong>3 -</strong> App technical details <small>(Required)</small> <i class="fa fa-angle-down" aria-hidden="true"></i></h4>
+            </div>
+            <div id="unsignedTech" class="panel-collapse collapse" role="tabpanel" aria-labelledby="unsignedTechHeading">
+              <div class="panel-body">
+                <p>We will need some technical information now. Don't worry, these details will be safe with us. We need them in order to publish your app for you.</p>
+                <div class="form-group clearfix">
+                  <div class="col-sm-4 control-label">
+                    <label for="fl-uns-bundleId">Bundle ID</label>
+                    <p class="help-block label-helper"><small>This is a unique ID for your app on the Windows Store. Fliplet auto-generated one for you.</small></p>
+                  </div>
+                  <div class="col-sm-8 fl-bundleId-holder">
+                    <span class="bundleId-uns-text"></span> <span class="btn btn-sm btn-default" change-bundleid>Change</span>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="fl-bundleId-field">
                     <div class="col-sm-8">
-                      <input type="text" name="fl-uns-iconName" class="form-control" id="fl-uns-iconName" maxlength="13" data-error="Please enter an app icon name" required/>
+                      <input type="text" name="fl-uns-bundleId" class="form-control" id="fl-uns-bundleId" data-error="Please enter your Bundle ID" required/>
                       <div class="help-block with-errors"></div>
-                      <p class="help-block"><small>The length of your app icon name is limited to 13 characters</small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="unsignedTechHeading">
-                <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordionUnsigned" href="#unsignedTech" aria-expanded="true" aria-controls="unsignedTech"><strong>3 -</strong> App technical details <small>(Required)</small> <i class="fa fa-angle-down" aria-hidden="true"></i></h4>
-              </div>
-              <div id="unsignedTech" class="panel-collapse collapse" role="tabpanel" aria-labelledby="unsignedTechHeading">
-                <div class="panel-body">
-                  <p>We will need some technical information now. Don't worry, these details will be safe with us. We need them in order to publish your app for you.</p>
-                  <div class="form-group clearfix">
-                    <div class="col-sm-4 control-label">
-                      <label for="fl-uns-bundleId">Bundle ID</label>
-                      <p class="help-block label-helper"><small>This is a unique ID for your app on the Windows Store. Fliplet auto-generated one for you.</small></p>
-                    </div>
-                    <div class="col-sm-8 fl-bundleId-holder">
-                      <span class="bundleId-uns-text"></span> <span class="btn btn-sm btn-default" change-bundleid>Change</span>
-                      <div class="help-block with-errors"></div>
-                    </div>
-                    <div class="fl-bundleId-field">
-                      <div class="col-sm-8">
-                        <input type="text" name="fl-uns-bundleId" class="form-control" id="fl-uns-bundleId" data-error="Please enter your Bundle ID" required/>
-                        <div class="help-block with-errors"></div>
-                        <p class="help-block"><small>This value needs to be unique and the structure must be <code>com.<i>organisationName</i>.<i>appName</i></code>.</small></p>
-                      </div>
+                      <p class="help-block"><small>This value needs to be unique and the structure must be <code>com.<i>organisationName</i>.<i>appName</i></code>.</small></p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <hr>
-          <div class="col-xs-5 save-btn-holder">
-            <p class="help-block"><small>Save your progress at any point.<br>You can come back and finish it.</small></p>
-            <div class="btn btn-primary" data-unsigned-save>Save progress <i class="fa fa-cloud-upload"></i></div>
-            <p class="text-success save-unsigned-progress">Your progress was saved successfully!</p>
-          </div>
-          <div class="col-xs-5 save-btn-holder col-xs-offset-2 text-right">
-            <p class="help-block"><small>Submit your information when you are ready!<br>We will take care of the rest.</small></p>
-            <button type="submit" class="btn btn-primary fl-green button-unsigned-request" data-unsigned-build>Request App <i class="fa fa-paper-plane"></i></button>
-            <p class="text-success save-unsigned-request">Your request was sent successfully!</p>
-          </div>
-        </form>
+        </div>
+        <div class="app-build-unsigned-status-holder">
+          <!-- App Status Area -->
+        </div>
+        <hr>
+        <div class="col-xs-5 save-btn-holder">
+          <p class="help-block"><small>Save your progress at any point.<br>You can come back and finish it.</small></p>
+          <div class="btn btn-primary" data-unsigned-save>Save progress <i class="fa fa-cloud-upload"></i></div>
+          <p class="text-success save-unsigned-progress">Your progress was saved successfully!</p>
+        </div>
+        <div class="col-xs-5 save-btn-holder col-xs-offset-2 text-right">
+          <p class="help-block"><small>Submit your information when you are ready!<br>We will take care of the rest.</small></p>
+          <button type="submit" class="btn btn-primary fl-green button-unsigned-request" data-unsigned-build>Request App <i class="fa fa-paper-plane"></i></button>
+          <p class="text-success save-unsigned-request">Your request was sent successfully!</p>
+        </div>
+      </form>
     </div>
     <div role="tabpanel" class="tab-pane fl-sb-push" id="push-tab">
       <form data-disable="false" role="form" id="pushConfiguration">

@@ -11,7 +11,9 @@ var unsignedSubmission = {};
 var notificationSettings = {};
 var appInfo;
 var statusTableTemplate = $('#status-table-template').html();
-var $statusTableElement = $('.app-build-status-holder');
+var $statusAppStoreTableElement = $('.app-build-appstore-status-holder');
+var $statusEnterpriseTableElement = $('.app-build-enterprise-status-holder');
+var $statusUnsignedTableElement = $('.app-build-unsigned-status-holder');
 var initLoad;
 
 /* FUNCTIONS */
@@ -721,20 +723,36 @@ $('[data-push-save]').on('click', function() {
 $('#appStoreConfiguration, #enterpriseConfiguration, #unsignedConfiguration').validator().off('change.bs.validator focusout.bs.validator');
 $('[name="submissionType"][value="appStore"]').prop('checked', true).trigger('change');
 
-function compileStatusTable(withData, buildsData) {
+function compileStatusTable(withData, origin, buildsData) {
   if (withData) {
     var template = Handlebars.compile(statusTableTemplate);
     var html = template(buildsData);
 
-    $statusTableElement.html(html);
+    if (origin === "appStore") {
+      $statusAppStoreTableElement.html(html);
+    }
+    if (origin === "enterprise") {
+      $statusEnterpriseTableElement.html(html);
+    }
+    if (origin === "unsigned") {
+      $statusUnsignedTableElement.html(html);
+    }
   } else {
-    $statusTableElement.html('');
+    if (origin === "appStore") {
+      $statusAppStoreTableElement.html('');
+    }
+    if (origin === "enterprise") {
+      $statusEnterpriseTableElement.html('');
+    }
+    if (origin === "unsigned") {
+      $statusUnsignedTableElement.html('');
+    }
   }
 
   Fliplet.Widget.autosize();
 }
 
-function checkSubmissionStatus(windowsSubmissions) {
+function checkSubmissionStatus(origin, windowsSubmissions) {
   var submissionsToShow = _.filter(windowsSubmissions, function(submission) {
     return submission.status === "queued" || submission.status === "submitted" || submission.status === "processing" || submission.status === "completed" || submission.status === "failed";
   });
@@ -756,8 +774,11 @@ function checkSubmissionStatus(windowsSubmissions) {
       }
 
       build.id = submission.id;
-      build.updatedAt = (submission.status === 'completed' || submission.status === 'failed') ?
+      build.updatedAt = ((submission.status === 'completed' || submission.status === 'failed') && submission.updatedAt) ?
         moment(submission.updatedAt).format('MMM Do YYYY, h:mm:ss a') :
+        '';
+      build.submittedAt = ((submission.status === 'queued' || submission.status === 'submitted') && submission.submittedAt) ?
+        moment(submission.submittedAt).format('MMM Do YYYY, h:mm:ss a') :
         '';
       build[submission.status] = true;
       build.fileUrl = appBuild ? appBuild.url : '';
@@ -765,9 +786,9 @@ function checkSubmissionStatus(windowsSubmissions) {
       buildsData.push(build);
     });
 
-    compileStatusTable(true, buildsData);
+    compileStatusTable(true, origin, buildsData);
   } else {
-    compileStatusTable(false);
+    compileStatusTable(false, origin);
   }
 }
 
@@ -776,7 +797,7 @@ function submissionChecker(submissions) {
     return submission.data.submissionType === "appStore" && submission.platform === "windows";
   });
 
-  checkSubmissionStatus(asub);
+  checkSubmissionStatus("appStore", asub);
 
   asub = _.maxBy(asub, function(el) {
     return new Date(el.updatedAt).getTime();
@@ -786,6 +807,9 @@ function submissionChecker(submissions) {
   var esub = _.filter(submissions, function(submission) {
     return submission.data.submissionType === "enterprise" && submission.platform === "windows";
   });
+
+  checkSubmissionStatus("enterprise", esub);
+
   esub = _.maxBy(esub, function(el) {
     return new Date(el.updatedAt).getTime();
   });
@@ -794,6 +818,9 @@ function submissionChecker(submissions) {
   var usub = _.filter(submissions, function(submission) {
     return submission.data.submissionType === "unsigned" && submission.platform === "windows";
   });
+
+  checkSubmissionStatus("unsigned", usub);
+
   usub = _.maxBy(usub, function(el) {
     return new Date(el.updatedAt).getTime();
   });
@@ -841,7 +868,17 @@ function windowsSubmissionChecker(submissions) {
     return submission.data.submissionType === "appStore" && submission.platform === "windows";
   });
 
-  checkSubmissionStatus(asub);
+  var esub = _.filter(submissions, function(submission) {
+    return submission.data.submissionType === "enterprise" && submission.platform === "windows";
+  });
+
+  var usub = _.filter(submissions, function(submission) {
+    return submission.data.submissionType === "unsigned" && submission.platform === "windows";
+  });
+
+  checkSubmissionStatus("appStore", asub);
+  checkSubmissionStatus("enterprise", esub);
+  checkSubmissionStatus("unsigned", usub);
 }
 
 function getSubmissions() {
