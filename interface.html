@@ -31,6 +31,9 @@
   </ul>
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fl-sb-appStore active" id="appstore-tab">
+      <div class="app-build-appstore-status-holder app-build-status-holder">
+        <!-- App Status Area -->
+      </div>
       <h3><small>Step 1 - Let us build your app</small></h3>
       <p>Complete this section to let us build your app.</p>
       <form data-disable="false" role="form" id="appStoreConfiguration">
@@ -118,9 +121,6 @@
             </div>
           </div>
         </div>
-        <div class="app-build-appstore-status-holder">
-          <!-- App Status Area -->
-        </div>
         <hr>
         <div class="col-xs-5 save-btn-holder">
           <p class="help-block"><small>Save your progress at any point.<br>You can come back and finish it.</small></p>
@@ -134,11 +134,14 @@
         </div>
       </form>
       <h3><small>Step 2 - Submit your app</small></h3>
-      <p>To submit (or update) your app to the Windows Store you will need to login at <a href="https://developer.microsoft.com/" target="_blank">Windows Store Dashboard</a> with your account details.</p>
-      <p>Once logged in, if you are starting a new submission you need to click <strong>Create a new app</strong>, or the <strong>app’s name</strong> and then <strong>Update</strong> under <em>Submissions</em>, if you are updating an existing submission.</p>
+      <p>To submit your app to the Windows Store you will need to login at <a href="https://developer.microsoft.com/" target="_blank">Windows Store Dashboard</a> with your account details.</p>
+      <p>Once logged in, if you are starting a new submission you need to click <strong>Create a new app</strong>.</p>
       <p>Now you just need to follow the steps on by one in the Windows Store Dashboard website. If you get lost at any point, Microsoft provides extensive documentation along the way and check our <a href="#" target="_blank">recommendations in our help articles</a>.</p>
     </div>
     <div role="tabpanel" class="tab-pane fl-sb-enterprise" id="enterprise-tab">
+      <div class="app-build-enterprise-status-holder app-build-status-holder">
+        <!-- App Status Area -->
+      </div>
       <p class="text-info">Complete this section to receive an app signed with <a href="https://docs.microsoft.com/en-gb/windows/uwp/publish/opening-a-developer-account" target="_blank">your Windows Developer account</a> to distribute in-house apps to your employees.</p>
       <form data-disable="false" role="form" id="enterpriseConfiguration">
         <div class="panel-group" id="accordionEnterprise" role="tablist" aria-multiselectable="true">
@@ -224,9 +227,6 @@
             </div>
           </div>
         </div>
-        <div class="app-build-enterprise-status-holder">
-          <!-- App Status Area -->
-        </div>
         <hr>
         <div class="col-xs-5 save-btn-holder">
           <p class="help-block"><small>Save your progress at any point.<br>You can come back and finish it.</small></p>
@@ -241,6 +241,9 @@
       </form>
     </div>
     <div role="tabpanel" class="tab-pane fl-sb-unsigned" id="unsigned-tab">
+      <div class="app-build-unsigned-status-holder app-build-status-holder">
+        <!-- App Status Area -->
+      </div>
       <p class="text-info">Unsigned apps will need to be signed before they can be distributed. If you would like Fliplet to sign the app for you, please request an app via the "App Store" or "Enterprise" tabs above. If you request an unsigned app file, you will need a PC.
         For more information about signing apps, please see <a href="https://docs.microsoft.com/en-us/windows/uwp/packaging/create-certificate-package-signing" target="_blank">this article</a>.
       </p>
@@ -327,9 +330,6 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="app-build-unsigned-status-holder">
-          <!-- App Status Area -->
         </div>
         <hr>
         <div class="col-xs-5 save-btn-holder">
