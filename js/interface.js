@@ -262,8 +262,14 @@ function submissionBuild(appSubmission, origin) {
     $('.button-' + origin + '-request').html('Request App <i class="fa fa-paper-plane"></i>');
     $('.save-' + origin + '-request').addClass('saved');
 
+    clearTimeout(initLoad);
+    initialLoad(false, 0);
+
+    Fliplet.Widget.autosize();
+
     setTimeout(function() {
       $('.save-' + origin + '-request').removeClass('saved');
+      Fliplet.Widget.autosize();
     }, 10000);
   }, function(err) {
     $('.button-' + origin + '-request').html('Request App <i class="fa fa-paper-plane"></i>');
