@@ -33,7 +33,7 @@ var createBundleID = function(orgName, appName) {
 
 function incrementVersionNumber(versionNumber) {
   var splitNumber = versionNumber.split('.');
-  var arrLength = splitNumber.length;
+  var arrLength = splitNumber.length - 1; // Ignores the last 0
 
   while (arrLength--) {
     if (splitNumber[arrLength] < 99) {
