@@ -381,6 +381,11 @@ h3 small {
   color: #fff;
 }
 
+.app-build-status table .app-build-progress.warning .app-build-progress-holder {
+  background-color: #d37f1c;
+  color: #fff;
+}
+
 .app-build-status table td.app-build-details {
   vertical-align: top;
   padding: 10px;
