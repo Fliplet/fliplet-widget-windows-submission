@@ -347,7 +347,8 @@ h3 small {
 }
 
 .app-build-status table td.app-build-progress .retry-build,
-.app-build-status table td.app-build-progress .download-build {
+.app-build-status table td.app-build-progress .download-build,
+.app-build-status table td.app-build-progress .cancel-build {
   font-size: 12px;
   margin-top: 5px;
   margin-right: 5px;

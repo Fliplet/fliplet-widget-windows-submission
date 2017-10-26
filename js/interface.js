@@ -310,7 +310,7 @@ function submissionBuild(appSubmission, origin) {
     Fliplet.Studio.emit('refresh-app-submissions');
 
     $('.button-' + origin + '-request').html('Request App <i class="fa fa-paper-plane"></i>');
-    $('.save-' + origin + '-request').addClass('saved');
+    $('.save-' + origin + '-request').addClass('saved').hide().fadeIn(250);
 
     clearTimeout(initLoad);
     initialLoad(false, 0);
@@ -318,8 +318,10 @@ function submissionBuild(appSubmission, origin) {
     Fliplet.Widget.autosize();
 
     setTimeout(function() {
-      $('.save-' + origin + '-request').removeClass('saved');
-      Fliplet.Widget.autosize();
+      $('.save-' + origin + '-request').fadeOut(250, function() {
+        $('.save-' + origin + '-request').removeClass('saved');
+        Fliplet.Widget.autosize();
+      });
     }, 10000);
   }, function(err) {
     $('.button-' + origin + '-request').html('Request App <i class="fa fa-paper-plane"></i>');

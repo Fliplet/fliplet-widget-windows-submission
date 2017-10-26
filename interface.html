@@ -461,6 +461,7 @@
           \{{#if queued}}
           <td class="app-build-progress">
             <div class="app-build-progress-holder"><i class="fa fa-minus-circle"></i> Queued</div>
+            <div class="cancel-build"><a href="#" data-cancel-build-id="\{{id}}" class="text-danger"><i class="fa fa-ban"></i> Cancel</a></div>
           </td>
           <td class="app-build-details">
             \{{#if submittedAt}}<span><span class="icon"><i class="fa fa-clock-o"></i> Started on:</span> \{{submittedAt}}</span>\{{/if}}
@@ -469,6 +470,7 @@
           \{{/if}} \{{#if submitted}}
           <td class="app-build-progress info">
             <div class="app-build-progress-holder"><i class="fa fa-spinner fa-pulse fa-fw"></i> In progress</div>
+            <div class="cancel-build"><a href="#" data-cancel-build-id="\{{id}}" class="text-danger"><i class="fa fa-ban"></i> Cancel</a></div>
           </td>
           <td class="app-build-details">
             \{{#if submittedAt}}<span><span class="icon"><i class="fa fa-clock-o"></i> Started on:</span> \{{submittedAt}}</span>\{{/if}}
@@ -477,6 +479,7 @@
           \{{/if}} \{{#if processing}}
           <td class="app-build-progress info">
             <div class="app-build-progress-holder"><i class="fa fa-spinner fa-pulse fa-fw"></i> In progress</div>
+            <div class="cancel-build"><a href="#" data-cancel-build-id="\{{id}}" class="text-danger"><i class="fa fa-ban"></i> Cancel</a></div>
           </td>
           <td class="app-build-details">
             \{{#if submittedAt}}<span><span class="icon"><i class="fa fa-clock-o"></i> Started on:</span> \{{submittedAt}}</span>\{{/if}}
@@ -500,6 +503,14 @@
           <td class="app-build-details">
             \{{#if updatedAt}}<span><span class="icon"><i class="fa fa-flag-checkered"></i> Finished on:</span> \{{updatedAt}}</span>\{{/if}}
             <div class="app-build-name">There was an error building your app</div>
+          </td>
+          \{{/if}} \{{#if cancelled}}
+          <td class="app-build-progress danger">
+            <div class="app-build-progress-holder"><i class="fa fa-ban"></i> Cancelled</div>
+          </td>
+          <td class="app-build-details">
+            \{{#if updatedAt}}<span><span class="icon"><i class="fa fa-flag-checkered"></i> Cancelled on:</span> \{{updatedAt}}</span>\{{/if}}
+            <div class="app-build-name">App build cancelled</div>
           </td>
           \{{/if}}
           <td class="app-build-download">
