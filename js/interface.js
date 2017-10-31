@@ -141,7 +141,7 @@ function loadAppStoreData() {
     $('[name="' + name + '"]').val((typeof appStoreSubmission.data[name] !== "undefined") ? appStoreSubmission.data[name] : '');
   });
 
-  if (appName !== '' && appIcon && (appSettings.screensToScreenshot && appSettings.screensToScreenshot.length)) {
+  if (appIcon && (appSettings.screensToScreenshot && appSettings.screensToScreenshot.length)) {
     if (appSettings.splashScreen && appSettings.splashScreen.size && (appSettings.splashScreen.size[0] && appSettings.splashScreen.size[1]) < 2732) {
       $('.app-details-appStore .app-splash-screen').addClass('has-warning');
     }
@@ -203,7 +203,7 @@ function loadEnterpriseData() {
     $('[name="' + name + '"]').val((typeof enterpriseSubmission.data[name] !== "undefined") ? enterpriseSubmission.data[name] : '');
   });
 
-  if (appIcon && appSettings.splashScreen) {
+  if (appIcon) {
     if (appSettings.splashScreen.size && (appSettings.splashScreen.size[0] && appSettings.splashScreen.size[1]) < 2732) {
       $('.app-details-ent .app-splash-screen').addClass('has-warning');
     }
@@ -259,7 +259,7 @@ function loadUnsignedData() {
     $('[name="' + name + '"]').val((typeof unsignedSubmission.data[name] !== "undefined") ? unsignedSubmission.data[name] : '');
   });
 
-  if (appIcon && appSettings.splashScreen) {
+  if (appIcon) {
     if (appSettings.splashScreen.size && (appSettings.splashScreen.size[0] && appSettings.splashScreen.size[1]) < 2732) {
       $('.app-details-uns .app-splash-screen').addClass('has-warning');
     }
