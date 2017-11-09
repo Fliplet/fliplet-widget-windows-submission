@@ -542,7 +542,7 @@ function savePushData() {
       }, 4000);
     });
   } else {
-    alert('Changes weren\'t saved.\nPlease fill in both field to set up Push Notifications.');
+    alert('Changes weren\'t saved.\nPlease fill in both fields to set up Push Notifications.');
   }
 }
 
