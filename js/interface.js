@@ -851,7 +851,7 @@ function checkSubmissionStatus(origin, windowsSubmissions) {
         debugApp = _.find(submission.result.debugApp.files, function(file) {
           var dotIndex = file.url.lastIndexOf('.');
           var ext = file.url.substring(dotIndex);
-          if (ext === '.ipa') {
+          if (ext === '.appxupload') {
             return true;
           }
         });
