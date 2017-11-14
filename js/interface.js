@@ -888,7 +888,7 @@ function checkSubmissionStatus(origin, windowsSubmissions) {
       build[submission.status] = true;
       build.fileUrl = appBuild ? appBuild.url : '';
 
-      if (userInfo.isAdmin && userInfo.isImpersonating) {
+      if (userInfo.user && (userInfo.user.isAdmin || userInfo.user.isImpersonating)) {
         build.debugFileUrl = debugApp ? debugApp.url : '';
       }
 
@@ -1038,8 +1038,15 @@ function initialLoad(initial, timeout) {
           ]);
         }
 
-        submissionChecker(submissions);
-        return Promise.resolve();
+        return Fliplet.API.request({
+          cache: true,
+          url: 'v1/user'
+        })
+        .then(function(user) {
+          userInfo = user;
+          submissionChecker(submissions);
+          return Promise.resolve();
+        });
       })
       .then(function() {
         // Fliplet.Env.get('appId')
@@ -1062,13 +1069,6 @@ function initialLoad(initial, timeout) {
           })
           .then(function(org) {
             organizationName = org.name;
-          }),
-          Fliplet.API.request({
-            cache: true,
-            url: 'v1/user'
-          })
-          .then(function(user) {
-            userInfo = user;
           })
         ]);
       })
