@@ -836,7 +836,7 @@ function compileStatusTable(withData, origin, buildsData) {
 
 function checkSubmissionStatus(origin, windowsSubmissions) {
   var submissionsToShow = _.filter(windowsSubmissions, function(submission) {
-    return submission.status === "queued" || submission.status === "submitted" || submission.status === "processing" || submission.status === "completed" || submission.status === "failed" || submission.status === "cancelled";
+    return submission.status === "queued" || submission.status === "submitted" || submission.status === "processing" || submission.status === "completed" || submission.status === "failed" || submission.status === "cancelled" || submission.status === "ready-for-testing" || submission.status === "tested";
   });
 
   var buildsData = [];
@@ -867,7 +867,7 @@ function checkSubmissionStatus(origin, windowsSubmissions) {
       }
 
       build.id = submission.id;
-      build.updatedAt = ((submission.status === 'completed' || submission.status === 'failed' || submission.status === 'cancelled') && submission.updatedAt) ?
+      build.updatedAt = ((submission.status === 'completed' || submission.status === 'failed' || submission.status === 'cancelled' || submission.status === 'ready-for-testing' || submission.status === 'tested') && submission.updatedAt) ?
         moment(submission.updatedAt).format('MMM Do YYYY, h:mm:ss a') :
         '';
       build.submittedAt = ((submission.status === 'queued' || submission.status === 'submitted' || submission.status === 'processing') && submission.submittedAt) ?
