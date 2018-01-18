@@ -854,10 +854,26 @@ function checkSubmissionStatus(origin, windowsSubmissions) {
             return true;
           }
         });
+      } else if (submission.previousResults.appBuild && submission.previousResults.appBuild.files) {
+        appBuild = _.find(submission.previousResults.appBuild.files, function(file) {
+          var dotIndex = file.url.lastIndexOf('.');
+          var ext = file.url.substring(dotIndex);
+          if (ext === '.appxupload') {
+            return true;
+          }
+        });
       }
 
       if (submission.result.debugApp && submission.result.debugApp.files) {
         debugApp = _.find(submission.result.debugApp.files, function(file) {
+          var dotIndex = file.url.lastIndexOf('.');
+          var ext = file.url.substring(dotIndex);
+          if (ext === '.appxupload') {
+            return true;
+          }
+        });
+      } else if (submission.previousResults.debugApp && submission.previousResults.debugApp.files) {
+        debugApp = _.find(submission.previousResults.debugApp.files, function(file) {
           var dotIndex = file.url.lastIndexOf('.');
           var ext = file.url.substring(dotIndex);
           if (ext === '.appxupload') {
