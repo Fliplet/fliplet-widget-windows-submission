@@ -854,8 +854,8 @@ function checkSubmissionStatus(origin, windowsSubmissions) {
             return true;
           }
         });
-      } else if (submission.previousResults.appBuild && submission.previousResults.appBuild.files) {
-        appBuild = _.find(submission.previousResults.appBuild.files, function(file) {
+      } else if (submission.data.previousResults && submission.data.previousResults.appBuild && submission.data.previousResults.appBuild.files) {
+        appBuild = _.find(submission.data.previousResults.appBuild.files, function(file) {
           var dotIndex = file.url.lastIndexOf('.');
           var ext = file.url.substring(dotIndex);
           if (ext === '.appxupload') {
@@ -872,8 +872,8 @@ function checkSubmissionStatus(origin, windowsSubmissions) {
             return true;
           }
         });
-      } else if (submission.previousResults.debugApp && submission.previousResults.debugApp.files) {
-        debugApp = _.find(submission.previousResults.debugApp.files, function(file) {
+      } else if (submission.data.previousResults && submission.data.previousResults.debugApp && submission.data.previousResults.debugApp.files) {
+        debugApp = _.find(submission.data.previousResults.debugApp.files, function(file) {
           var dotIndex = file.url.lastIndexOf('.');
           var ext = file.url.substring(dotIndex);
           if (ext === '.appxupload') {
