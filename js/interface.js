@@ -472,6 +472,8 @@ function saveAppStoreData(request) {
   appStoreSubmission.data = data;
   notificationSettings = pushData;
 
+  savePushData(true);
+
   if (request) {
     requestBuild('appStore', appStoreSubmission);
   } else {
@@ -492,6 +494,8 @@ function saveEnterpriseData(request) {
 
   enterpriseSubmission.data = data;
   notificationSettings = pushData;
+
+  savePushData(true);
 
   if (request) {
     requestBuild('enterprise', enterpriseSubmission);
@@ -519,7 +523,7 @@ function saveUnsignedData(request) {
   }
 }
 
-function savePushData() {
+function savePushData(silentSave) {
   var data = notificationSettings;
 
   $('#pushConfiguration [name]').each(function(i, el) {
@@ -540,21 +544,20 @@ function savePushData() {
 
   notificationSettings = data;
 
-  if (notificationSettings.wns) {
-    Fliplet.API.request({
-      method: 'PUT',
-      url: 'v1/widget-instances/com.fliplet.push-notifications?appId=' + Fliplet.Env.get('appId'),
-      data: notificationSettings
-    }).then(function() {
-      $('.save-push-progress').addClass('saved');
+  Fliplet.API.request({
+    method: 'PUT',
+    url: 'v1/widget-instances/com.fliplet.push-notifications?appId=' + Fliplet.Env.get('appId'),
+    data: notificationSettings
+  }).then(function() {
+    $('.save-push-progress').addClass('saved');
+    if (!notificationSettings.wns && !silentSave) {
+      alert('Your settings have been saved!\n\nHowever you still need to fill in the fields.');
+    }
 
-      setTimeout(function() {
-        $('.save-push-progress').removeClass('saved');
-      }, 4000);
-    });
-  } else {
-    alert('Changes weren\'t saved.\nPlease fill in both fields to set up Push Notifications.');
-  }
+    setTimeout(function() {
+      $('.save-push-progress').removeClass('saved');
+    }, 4000);
+  });
 }
 
 function init() {
