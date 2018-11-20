@@ -836,7 +836,7 @@ function publishApp(context) {
     method: 'POST',
     url: 'v1/apps/' + Fliplet.Env.get('appId') + '/publish',
     data: options
-  }).then((response) => {
+  }).then(function(response) {
     // Update appInfo
     appInfo.productionAppId = response.app.id;
 
