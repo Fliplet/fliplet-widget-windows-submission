@@ -208,7 +208,7 @@ function loadEnterpriseData() {
     if (appSettings.splashScreen.size && (appSettings.splashScreen.size[0] && appSettings.splashScreen.size[1]) < 2732) {
       $('.app-details-ent .app-splash-screen').addClass('has-warning');
     }
- 
+
     allAppData.push('enterprise');
   } else {
     $('.app-details-ent').addClass('required-fill');
@@ -634,7 +634,7 @@ $('.panel-group').on('shown.bs.collapse', '.panel-collapse', function() {
     Fliplet.Widget.autosize();
   });
 
-$('a[data-toggle="tab"').on('shown.bs.tab', function() {
+$('a[data-toggle="tab"]').on('shown.bs.tab', function() {
     Fliplet.Widget.autosize();
   })
   .on('hidden.bs.tab', function() {
@@ -1071,7 +1071,7 @@ function windowsSubmissionChecker(submissions) {
   usub = _.orderBy(usub, function(submission) {
     return new Date(submission.createdAt).getTime();
   }, ['desc']);
-  
+
   checkSubmissionStatus("appStore", asub);
   checkSubmissionStatus("enterprise", esub);
   checkSubmissionStatus("unsigned", usub);
