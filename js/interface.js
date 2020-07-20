@@ -462,6 +462,10 @@ function requestBuild(origin, submission) {
 }
 
 function saveAppStoreData(request) {
+  if (!organizationIsPaying) {
+    return;
+  }
+
   var data = appStoreSubmission.data || {};
   var pushData = notificationSettings;
 
@@ -492,6 +496,10 @@ function saveAppStoreData(request) {
 }
 
 function saveEnterpriseData(request) {
+  if (!organizationIsPaying) {
+    return;
+  }
+
   var data = enterpriseSubmission.data || {};
   var pushData = notificationSettings;
 
@@ -515,6 +523,10 @@ function saveEnterpriseData(request) {
 }
 
 function saveUnsignedData(request) {
+  if (!organizationIsPaying) {
+    return;
+  }
+
   var data = unsignedSubmission.data || {};
 
   $('#unsignedConfiguration [name]').each(function(i, el) {
@@ -534,6 +546,10 @@ function saveUnsignedData(request) {
 }
 
 function savePushData(silentSave) {
+  if (!organizationIsPaying) {
+    return;
+  }
+
   var data = notificationSettings || {};
 
   $('#pushConfiguration [name]').each(function(i, el) {
