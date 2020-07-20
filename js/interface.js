@@ -462,7 +462,7 @@ function requestBuild(origin, submission) {
 }
 
 function saveAppStoreData(request) {
-  var data = appStoreSubmission.data;
+  var data = appStoreSubmission.data || {};
   var pushData = notificationSettings;
 
   $('#appStoreConfiguration [name]').each(function(i, el) {
@@ -492,7 +492,7 @@ function saveAppStoreData(request) {
 }
 
 function saveEnterpriseData(request) {
-  var data = enterpriseSubmission.data;
+  var data = enterpriseSubmission.data || {};
   var pushData = notificationSettings;
 
   $('#enterpriseConfiguration [name]').each(function(i, el) {
@@ -515,7 +515,7 @@ function saveEnterpriseData(request) {
 }
 
 function saveUnsignedData(request) {
-  var data = unsignedSubmission.data;
+  var data = unsignedSubmission.data || {};
 
   $('#unsignedConfiguration [name]').each(function(i, el) {
     var name = $(el).attr("name");
@@ -534,7 +534,7 @@ function saveUnsignedData(request) {
 }
 
 function savePushData(silentSave) {
-  var data = notificationSettings;
+  var data = notificationSettings || {};
 
   $('#pushConfiguration [name]').each(function(i, el) {
     var name = $(el).attr("name");
