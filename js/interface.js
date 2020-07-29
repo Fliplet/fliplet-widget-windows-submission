@@ -1,5 +1,6 @@
 var widgetId = Fliplet.Widget.getDefaultId();
 var widgetData = Fliplet.Widget.getData(widgetId) || {};
+var organizationIsPaying = widgetData.organizationIsPaying;
 var appName = '';
 var organizationName = '';
 var appIcon = '';
@@ -16,6 +17,12 @@ var $statusEnterpriseTableElement = $('.app-build-enterprise-status-holder');
 var $statusUnsignedTableElement = $('.app-build-unsigned-status-holder');
 var initLoad;
 var userInfo;
+var formInputSelectors = [
+  '#appStoreConfiguration :input',
+  '#enterpriseConfiguration :input',
+  '#unsignedConfiguration :input',
+  '#pushConfiguration :input'
+];
 
 /* FUNCTIONS */
 String.prototype.toCamelCase = function() {
@@ -455,7 +462,11 @@ function requestBuild(origin, submission) {
 }
 
 function saveAppStoreData(request) {
-  var data = appStoreSubmission.data;
+  if (!organizationIsPaying) {
+    return;
+  }
+
+  var data = appStoreSubmission.data || {};
   var pushData = notificationSettings;
 
   $('#appStoreConfiguration [name]').each(function(i, el) {
@@ -485,7 +496,11 @@ function saveAppStoreData(request) {
 }
 
 function saveEnterpriseData(request) {
-  var data = enterpriseSubmission.data;
+  if (!organizationIsPaying) {
+    return;
+  }
+
+  var data = enterpriseSubmission.data || {};
   var pushData = notificationSettings;
 
   $('#enterpriseConfiguration [name]').each(function(i, el) {
@@ -508,7 +523,11 @@ function saveEnterpriseData(request) {
 }
 
 function saveUnsignedData(request) {
-  var data = unsignedSubmission.data;
+  if (!organizationIsPaying) {
+    return;
+  }
+
+  var data = unsignedSubmission.data || {};
 
   $('#unsignedConfiguration [name]').each(function(i, el) {
     var name = $(el).attr("name");
@@ -527,7 +546,11 @@ function saveUnsignedData(request) {
 }
 
 function savePushData(silentSave) {
-  var data = notificationSettings;
+  if (!organizationIsPaying) {
+    return;
+  }
+
+  var data = notificationSettings || {};
 
   $('#pushConfiguration [name]').each(function(i, el) {
     var name = $(el).attr("name");
@@ -1081,7 +1104,29 @@ function getSubmissions() {
   return Fliplet.App.Submissions.get();
 }
 
+function disableForm() {
+  $(formInputSelectors.join(',')).prop('disabled', true);
+  $('[data-push-save], [data-app-store-save], [data-app-store-build]')
+    .addClass('disabled')
+    .prop('disabled', true);
+}
+
+function enableForm() {
+  $(formInputSelectors.join(',')).prop('disabled', false);
+  $('[data-push-save], [data-app-store-save], [data-app-store-build]')
+    .removeClass('disabled')
+    .prop('disabled', false);
+}
+
 function initialLoad(initial, timeout) {
+  if (!organizationIsPaying) {
+    disableForm();
+
+    return;
+  }
+
+  enableForm();
+
   if (!initial) {
     initLoad = setTimeout(function() {
       getSubmissions()
