@@ -78,20 +78,6 @@ function loadAppStoreData() {
       return;
     }
 
-    /* APP SCREENSHOTS */
-    if (name === "fl-store-screenshots") {
-      var screenNames = '';
-      if (appSettings.screensToScreenshot) {
-        appSettings.screensToScreenshot.forEach(function(screen) {
-          screenNames += screen.title + ", ";
-        });
-        screenNames = screenNames.replace(/\,[\s]$/g, '');
-        appStoreSubmission.data.appScreenshots = appSettings.screensToScreenshot;
-      }
-      $('[name="' + name + '"]').val(screenNames);
-      return;
-    }
-
     /* CHECK COUNTRIES */
     if (name === "fl-store-availability") {
       $('[name="' + name + '"]').selectpicker('val', ((typeof appStoreSubmission.data[name] !== "undefined") ? appStoreSubmission.data[name] : []));
@@ -150,7 +136,7 @@ function loadAppStoreData() {
     $('[name="' + name + '"]').val((typeof appStoreSubmission.data[name] !== "undefined") ? appStoreSubmission.data[name] : '');
   });
 
-  if (appIcon && (appSettings.screensToScreenshot && appSettings.screensToScreenshot.length)) {
+  if (appIcon) {
     if (appSettings.splashScreen && appSettings.splashScreen.size && (appSettings.splashScreen.size[0] && appSettings.splashScreen.size[1]) < 2732) {
       $('.app-details-appStore .app-splash-screen').addClass('has-warning');
     }
@@ -167,9 +153,6 @@ function loadAppStoreData() {
     }
     if (appSettings.splashScreen && appSettings.splashScreen.size && (appSettings.splashScreen.size[0] && appSettings.splashScreen.size[1]) < 2732) {
       $('.app-details-appStore .app-splash-screen').addClass('has-warning');
-    }
-    if (!appSettings.screensToScreenshot || !appSettings.screensToScreenshot.length) {
-      $('.app-details-appStore .app-screenshots').addClass('has-error');
     }
   }
 }
@@ -922,7 +905,7 @@ function compileStatusTable(withData, origin, buildsData) {
 
 function checkSubmissionStatus(origin, windowsSubmissions) {
   var submissionsToShow = _.filter(windowsSubmissions, function(submission) {
-    return submission.status === "queued" || submission.status === "submitted" || submission.status === "processing" || submission.status === "completed" || submission.status === "failed" || submission.status === "cancelled";
+    return submission.status === "queued" || submission.status === "submitted" || submission.status === "processing" || submission.status === "completed" || submission.status === "failed" || submission.status === "cancelled" || submission.status === "ready-for-testing" || submission.status === "tested";
   });
 
   var buildsData = [];
@@ -969,7 +952,7 @@ function checkSubmissionStatus(origin, windowsSubmissions) {
       }
 
       build.id = submission.id;
-      build.updatedAt = ((submission.status === 'completed' || submission.status === 'failed' || submission.status === 'cancelled') && submission.updatedAt) ?
+      build.updatedAt = ((submission.status === 'completed' || submission.status === 'failed' || submission.status === 'cancelled' || submission.status === 'ready-for-testing' || submission.status === 'tested') && submission.updatedAt) ?
         moment(submission.updatedAt).format('MMM Do YYYY, h:mm:ss a') :
         '';
       build.submittedAt = ((submission.status === 'queued' || submission.status === 'submitted' || submission.status === 'processing') && submission.submittedAt) ?
